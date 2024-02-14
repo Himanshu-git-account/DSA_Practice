@@ -20,3 +20,17 @@
     display: block;
 }
 
+
+#infiniteScrollContainer{
+    margin: 10px;
+    padding: 10px;
+    width: 60%;
+    text-align: center;
+}
+.card{
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid gray;
+    background-color: antiquewhite;
+    
+}
