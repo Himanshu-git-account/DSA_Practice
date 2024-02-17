@@ -7,9 +7,9 @@
 // let b= 10
 
 // function sum(a){
-//     return function curriedFunct(b){
-//         if(a) curriedFunct(a,b)
-//         return a+b
+//     return function(b){
+//         if(b) return sum(a+b)
+//         return a
 //     }
 // }
 

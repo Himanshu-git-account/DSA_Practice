@@ -297,30 +297,46 @@
 
 // console.log(maxProfit(prices))
 
- const num1 =[1,2] 
- const m=2;
- const num2 =[2,4,5] 
- const n=3;
+//  const num1 =[1,2] 
+//  const m=2;
+//  const num2 =[2,4,5] 
+//  const n=3;
 
 
 
-var merge = function(nums1, m, nums2, n) {
-    let newArray =[];
-    let i=0;
-    while(i<(m+n) && nums1.length!=0 && nums2.length!=0){
-        let newNum = nums1[i]<=nums2[i]?nums1.shift():nums2.shift();
-        newArray.push(newNum);
-        i++;
-    }
-    if(newArray.length<m+n){
-        if(num1.length){
-            newArray = [...newArray,...num1]
-        }
-        if(num2.length){
-            newArray = [...newArray,...num1]
-        }
-    }
-    return newArray
-};
-console.log(merge(num1,m,num2,n))
+// var merge = function(nums1, m, nums2, n) {
+//     let newArray =[];
+//     let i=0;
+//     while(i<(m+n) && nums1.length!=0 && nums2.length!=0){
+//         let newNum = nums1[i]<=nums2[i]?nums1.shift():nums2.shift();
+//         newArray.push(newNum);
+//         i++;
+//     }
+//     if(newArray.length<m+n){
+//         if(num1.length){
+//             newArray = [...newArray,...num1]
+//         }
+//         if(num2.length){
+//             newArray = [...newArray,...num1]
+//         }
+//     }
+//     return newArray
+// };
+// console.log(merge(num1,m,num2,n))
 //newArray=[1,]
+
+
+//create a largest number out of the array
+//input :[9,2,99,901,910] // 9999109012
+
+const greatestNumber = (arr) =>{
+    const newArray = arr.map(item=>item.toString()).sort((a,b)=>{
+        if( a+b < b+a){
+            return -1
+        }
+        return 1
+    });
+   return parseInt(newArray.join(""));
+}
+console.log(greatestNumber([9,2,99,901,910]))
+

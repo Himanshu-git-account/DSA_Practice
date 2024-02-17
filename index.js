@@ -6,7 +6,7 @@
 
 // // function sum(a){
 // //     return function(b){
-// //        if(b) return sum(a+b);
+// //        if(typeof b==="number") return sum(a+b);
 // //        return a;
 // //     }
 // // }
