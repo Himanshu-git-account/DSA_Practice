@@ -329,14 +329,146 @@
 //create a largest number out of the array
 //input :[9,2,99,901,910] // 9999109012
 
-const greatestNumber = (arr) =>{
-    const newArray = arr.map(item=>item.toString()).sort((a,b)=>{
-        if( a+b < b+a){
-            return -1
-        }
-        return 1
-    });
-   return parseInt(newArray.join(""));
-}
-console.log(greatestNumber([9,2,99,901,910]))
+// const greatestNumber = (arr) =>{
+//     const newArray = arr.map(item=>item.toString()).sort((a,b)=>{
+//         if( a+b < b+a){
+//             return -1
+//         }
+//         return 1
+//     });
+//    return parseInt(newArray.join(""));
+// }
+// console.log(greatestNumber([9,2,99,901,910]))
 
+// Product of Array Except Self
+// Example 1:
+
+// Input: nums = [1,2,3,4]
+// Output: [24,12,8,6]
+// Example 2:
+
+// Input: nums = [-1,1,0,-3,3]
+// Output: [0,0,9,0,0]
+
+// var productExceptSelf = function(nums) {
+//     let left=[];
+//     let result=[]
+//     let product = 1;
+//     for(let i=0;i<nums.length;i++){
+//         product = product* nums[i];
+//         left[i] = product;
+//     }
+//     console.log(left)
+//     product = 1;
+//     for(let i=nums.length-1;i>0;i--){
+//         result[i]= product*left[i-1];
+//         product=product*nums[i];
+//     }
+//     result[0]=product;
+//     return result
+// };
+// console.log(productExceptSelf([1,2,3,4]))
+
+
+//Maximum Subarray
+// Example 1:
+
+// Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+// Output: 6
+// Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+// Example 2:
+
+// Input: nums = [1]
+// Output: 1
+// Explanation: The subarray [1] has the largest sum 1.
+// Example 3:
+
+// Input: nums = [5,4,-1,7,8]
+// Output: 23
+// Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
+
+//USe kaden's alogrithm
+
+
+// var maxSubArray = function(arr) {
+//     let maxSum=arr[0];
+//     let currentSum = 0;
+
+//     for(let i=0;i<arr.length;i++){
+//         currentSum = currentSum+ arr[i];
+//         if(currentSum>maxSum){
+//             maxSum=currentSum;
+//         }
+//         if(currentSum<=0){
+//             currentSum=0;
+//         }
+//     }
+//     return maxSum;
+// };
+ 
+// console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
+
+
+//Maximum Product Subarray
+// Example 1:
+
+// Input: nums = [2,3,-2,4]
+// Output: 6
+// Explanation: [2,3] has the largest product 6.
+// Example 2:
+
+// Input: nums = [-2,0,-1]
+// Output: 0
+// Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
+
+// var maxProduct = function(arr) {
+//     let leftProduct = 1;
+//     let rightProduct = 1;
+//     let max =arr[0];
+
+//     for(let i=0;i<arr.length;i++){
+//             leftProduct = leftProduct===0?1:leftProduct;
+//             rightProduct = rightProduct===0?1:rightProduct;
+
+//             //remember this
+//             leftProduct = leftProduct*arr[i]
+//             rightProduct = rightProduct * arr[arr.length-i-1]
+
+//              max = Math.max(leftProduct,Math.max(max,rightProduct));
+
+            
+//     }
+//     return max
+// };
+
+// console.log(maxProduct([-3,0,1,-2]))
+
+
+//Find Minimum in Rotated Sorted Array
+
+// Example 1:
+
+// Input: nums = [3,4,5,1,2]
+// Output: 1
+// Explanation: The original array was [1,2,3,4,5] rotated 3 times.
+// Example 2:
+
+// Input: nums = [4,5,6,7,0,1,2]
+// Output: 0
+// Explanation: The original array was [0,1,2,4,5,6,7] and it was rotated 4 times.
+
+
+// function findSmallest(arr){
+//     let low=0;
+//     let high= arr.length-1;
+
+//     while(low<high){
+//         let middle = Math.floor((low+high)/2);
+//         if(arr[middle]>arr[high]){
+//             low = middle+1;
+//         }else{
+//             high = middle
+//         }
+//     }
+//     return arr[low]
+// }
