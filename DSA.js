@@ -86,41 +86,42 @@
 
 // const str = "acbkbecad"
 // //Longest Palindrome Substring
-// function longestPalindrome(str){
+// var longestPalindrome= function(str){
+//     let maxSize=1;
+//     let maxSubstring =str[0]
+//     for(let i=1;i<str.length;i++){
+//         // odd
+//         let low=i;
+//         let high = i;
 
-//     let maxSize =0;palindrome = ""
-//     for(let i=0;i<str.length;i++){
-//         console.log("i->",i)
-//         let [oddsubpalin,oddSize] = expandAroundCenter(str,i,i);
-//         let [evenSubPalin,evenSize] = expandAroundCenter(str,i,i+1);
-       
-//         if(maxSize<oddSize){
-//             maxSize=oddSize;
-//             palindrome = str.substr(oddsubpalin,oddSize)
+//         while(str[low]===str[high] && low>=0 && high<=str.length-1){
+//             low--;
+//             high++;
 //         }
-//         if(maxSize<evenSize){
-//             maxSize=evenSize;
-//             palindrome = str.substring(evenSubPalin,evenSize)
+//         size = high-low-1;
+//         if(size>maxSize){
+//             maxSize = size;
+//             maxSubstring= str.substring(low+1,high)
 //         }
-        
-        
+//          // even
+//         low=i;
+//         high = i-1;
+
+//         while(str[low]===str[high] && low>=0 && high<=str.length-1){
+//             low--;
+//             high++;
+//         }
+//         size = high-low-1;
+//         if(size>maxSize){
+//             maxSize = size;
+//             maxSubstring= str.substring(low+1,high)
+//         }
 //     }
-//     return palindrome;
+//     return maxSubstring
 // }
 // console.log("longestPalindrome",longestPalindrome(str))
 
-// function expandAroundCenter(str,left,right){
 
-
-//     while(str[left]===str[right] && left>=0 && right<str.length){
-        
-//         left--;
-//         right++;
-//     }
-//     let size = right-left-1;
-        
-//     return [left+1,size]
-// }
 
 
 //Merge two Sorted Array 
@@ -472,3 +473,80 @@
 //     }
 //     return arr[low]
 // }
+
+
+//Search in Rotated Sorted Array
+
+// Example 1:
+
+// Input: nums = [4,5,6,7,0,1,2], target = 0
+// Output: 4
+// Example 2:
+
+// Input: nums = [4,5,6,7,0,1,2], target = 3
+// Output: -1
+
+// var search = function(arr, key) {
+//         let low=0;
+//         let high = arr.length-1;
+//         while(low<=high){
+//             let mid = Math.floor((low+high)/2);
+            
+//             if(arr[mid]===key) return mid;
+
+//             if(arr[low]<=arr[mid]){
+//                 if(key>=arr[low]&& key<arr[mid]){
+//                     high = mid-1;
+//                 }
+//                 else{
+//                     low = mid +1;
+//                 }
+//             }
+//             else{
+//                 if(key > arr[mid] && key<=arr[high]){
+//                     low=mid+1;
+//                 }else{
+//                     high=mid-1;
+//                 }
+//             }
+//         }
+//         return -1;
+// };
+
+// console.log(search([4,5,6,7,0,1,2],0))
+
+
+//3sum
+// Input: nums = [-1,0,1,2,-1,-4]
+// Output: [[-1,-1,2],[-1,0,1]]
+// Input: nums = [0,0,0]
+// Output: [[0,0,0]]
+
+// var threeSum = function(nums) {
+//     let resultArray = [];
+//     if(nums.length<3) return [];
+//     nums = nums.sort((a,b)=>a-b);
+//     for(let i=0;i<nums.length-2;i++){
+          
+//         let j=i+1;
+//         let k=nums.length-1;
+//       if(i>0 && nums[i]===nums[i-1]) continue;
+//         while(j<k){
+//             let sum = nums[i]+nums[j]+nums[k];
+//             if(sum===0){
+                
+//                 resultArray.push([nums[i],nums[j],nums[k]]);
+//                 while(nums[j]===nums[j+1]) j++;
+//                 while(nums[k]===nums[k-1]) k--;
+//                 j++;
+//                 k--;
+//             }
+//             else if(sum<0){
+//                 j++
+//             }else{
+//                 k--
+//             }
+//         }
+//     }
+//     return resultArray
+// };
