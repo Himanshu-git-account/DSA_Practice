@@ -224,7 +224,7 @@
 //             return false
 //         }
 //     }
-//     if(map.length>0) return false;
+//     if(Object.keys(map).length) return false;
 //     return true;
 
 // }
@@ -466,7 +466,7 @@
 //     while(low<high){
 //         let middle = Math.floor((low+high)/2);
 //         if(arr[middle]>arr[high]){
-//             low = middle+1;
+//             low = middle+1;  //remember this
 //         }else{
 //             high = middle
 //         }
@@ -489,7 +489,7 @@
 // var search = function(arr, key) {
 //         let low=0;
 //         let high = arr.length-1;
-//         while(low<=high){
+//         while(low<=high){ //remember
 //             let mid = Math.floor((low+high)/2);
             
 //             if(arr[mid]===key) return mid;
