@@ -148,9 +148,9 @@ const handleSearchInput = (e) => {
 
 const debouncedFunction = (fn, d) => {
   let timer = null;
-  let context = this;
-
+ 
   return function (...args) {
+    let context = this;
     clearTimeout(timer);
     timer = setTimeout(() => {
       fn.apply(context, args);

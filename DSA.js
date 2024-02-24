@@ -530,7 +530,7 @@
           
 //         let j=i+1;
 //         let k=nums.length-1;
-//       if(i>0 && nums[i]===nums[i-1]) continue;
+//         if(i>0 && nums[i]===nums[i-1]) continue;
 //         while(j<k){
 //             let sum = nums[i]+nums[j]+nums[k];
 //             if(sum===0){
@@ -550,3 +550,85 @@
 //     }
 //     return resultArray
 // };
+
+// Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+// An input string is valid if:
+
+// Open brackets must be closed by the same type of brackets.
+// Open brackets must be closed in the correct order.
+// Every close bracket has a corresponding open bracket of the same type.
+ 
+
+// Example 1:
+
+// Input: s = "()"
+// Output: true
+// Example 2:
+
+// Input: s = "()[]{}"
+// Output: true
+// Example 3:
+
+// Input: s = "(]"
+// Output: false
+
+// var isValid = function(str) {
+//     let parathesis ={
+//         '{':'}',
+//         '(':')',
+//         '[':']'
+//     }
+//     let arr=[];
+//     if(str.length%2===1) return false;
+//     if(str[0]==='}' || str[0]===')'|| str[0]===']') return false;
+//     if(str[str.length-1]==='[' || str[str.length-1]==='('|| str[str.length-1]==='[') return false
+//     for(let i=0;i<str.length;i++){
+//         if(str[i]==='[' || str[i]==='(' || str[i]==='{'){
+//             arr.push(str[i])
+//         }else{
+//             if(parathesis[arr.pop()]===str[i]){
+//                 continue;
+//             }
+//             else{
+//                 return false
+//             }
+//         }
+//     }
+//     return arr.length===0
+// };
+
+// You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
+
+// Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+
+// You may assume that you have an infinite number of each kind of coin.
+
+ 
+
+// Example 1:
+
+// Input: coins = [1,2,5], amount = 11
+// Output: 3
+// Explanation: 11 = 5 + 5 + 1
+// Example 2:
+
+// Input: coins = [2], amount = 3
+// Output: -1
+// Example 3:
+
+// Input: coins = [1], amount = 0
+// Output: 0
+
+
+// var coinChange = function(coins, amount) {
+//     let coinArray =new Array(amount+1).fill(Infinity);
+//     coinArray[0] =0;
+//     for(coin of coins){
+//         for(let i=coin;i<=amount;i++){
+//             coinArray[i] = Math.min(coinArray[i],coinArray[i-coin]+1)
+//         }
+//     }
+//     return coinArray[amount]===Infinity?-1:coinArray[amount]
+// };
+ 
