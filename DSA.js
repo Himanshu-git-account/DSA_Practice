@@ -351,23 +351,26 @@
 // Input: nums = [-1,1,0,-3,3]
 // Output: [0,0,9,0,0]
 
-// var productExceptSelf = function(nums) {
-//     let left=[];
-//     let result=[]
-//     let product = 1;
-//     for(let i=0;i<nums.length;i++){
-//         product = product* nums[i];
-//         left[i] = product;
+// function productExceptSelf(arr){
+//     let leftProduct = [];
+//     let rightProduct =[];
+//     let resultArr = [];
+//     let product = 1
+//     for(let i=0;i<arr.length;i++){
+//         leftProduct.push(product); // remember this
+//        product = product * arr[i];
 //     }
-//     console.log(left)
-//     product = 1;
-//     for(let i=nums.length-1;i>0;i--){
-//         result[i]= product*left[i-1];
-//         product=product*nums[i];
+//     product=1
+//     for(let i=arr.length-1;i>=0;i--){
+//         rightProduct[i] = product // remember this
+//        product = product * arr[i];
 //     }
-//     result[0]=product;
-//     return result
-// };
+//     for(let i=0;i<arr.length;i++){
+//         resultArr[i] = leftProduct[i]*rightProduct[i]
+//     }
+    
+//     return resultArr
+// }
 // console.log(productExceptSelf([1,2,3,4]))
 
 
@@ -513,7 +516,7 @@
 //         return -1;
 // };
 
-// console.log(search([4,5,6,7,0,1,2],0))
+// console.log(search([4,5,6,7,0,1,2],0))  
 
 
 //3sum
